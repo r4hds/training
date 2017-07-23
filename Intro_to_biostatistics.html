@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Introduction to Biostatistics</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="generator" content="pandoc" />
+
+
+
+  <meta name="date" content="2017-07-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <base target="_blank">
+
+  <script type="text/javascript">
+    var SLIDE_CONFIG = {
+      // Slide settings
+      settings: {
+                title: 'Introduction to Biostatistics',
+                        useBuilds: true,
+        usePrettify: true,
+        enableSlideAreas: true,
+        enableTouch: true,
+                        favIcon: 'Intro_to_biostatistics_files/logo.jpg',
+              },
+
+      // Author information
+      presenters: [
+            {
+        name:  'Balogun Stephen Taiye' ,
+        company: '',
+        gplus: '',
+        twitter: '',
+        www: '',
+        github: ''
+      },
+            ]
+    };
+  </script>
+
+
+  <style type="text/css">
+
+    b, strong {
+      font-weight: bold;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    slides > slide {
+      -webkit-transition: all 0.6s ease-in-out;
+      -moz-transition: all 0.6s ease-in-out;
+      -o-transition: all 0.6s ease-in-out;
+      transition: all 0.6s ease-in-out;
+    }
+
+    .auto-fadein {
+      -webkit-transition: opacity 0.6s ease-in;
+      -webkit-transition-delay: 0.6s;
+      -moz-transition: opacity 0.6s ease-in 0.6s;
+      -o-transition: opacity 0.6s ease-in 0.6s;
+      transition: opacity 0.6s ease-in 0.6s;
+      opacity: 0;
+    }
+
+    slides > slide:not(.nobackground):before {
+      font-size: 12pt;
+      content: "";
+      position: absolute;
+      bottom: 20px;
+      left: 60px;
+      background: url(Intro_to_biostatistics_files/logo.jpg) no-repeat 0 50%;
+      -webkit-background-size: 30px 30px;
+      -moz-background-size: 30px 30px;
+      -o-background-size: 30px 30px;
+      background-size: 30px 30px;
+      padding-left: 40px;
+      height: 30px;
+      line-height: 1.9;
+    }
+  </style>
+
+  <link rel="stylesheet" href="presentation.css" type="text/css" />
+
+</head>
+
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="title-slide segue nobackground">
+        <aside class="gdbar"><img src="Intro_to_biostatistics_files/logo.jpg"></aside>
+        <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+            <p style="margin-top: 6px; margin-left: -2px;">July 16, 2017</p>
+          </hgroup>
+  </slide>
+
+<slide class='segue dark nobackground level1'><hgroup class = 'auto-fadein'><h2>Introduction</h2></hgroup><article  id="introduction">
+
+</article></slide><slide class=''><hgroup><h2>Definition</h2></hgroup><article  id="definition">
+
+<ul>
+<li><p>Transforms data into meaningful results for decision-making</p></li>
+<li><p>The whole essence of research is to contribute to the body of knowledge and inform decision-making.</p></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Research Workflow</h2></hgroup><article  id="research-workflow" class="flexbox vcenter">
+
+<img src='pics/data_work_flow1.jpg' title='fig:'/><p class='caption'>Fig. 1: Research workflow chart</p>
+
+<ul>
+<li>Usually, the researcher might go back and forth between each of the stages of the research.</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Data Analysis Workflow</h2></hgroup><article  id="data-analysis-workflow" class="flexbox vcenter">
+
+<img src='pics/data_work_flow2.jpg' title='fig:'/><p class='caption'>Fig. 2: data analysis workflow chart</p>
+
+<ul>
+<li><p>Data analysis revolves around the trio of <strong>transformation</strong>, <strong>visualization</strong> and <strong>modeling</strong></p></li>
+<li><p>The trio forms the core of any statistical software</p></li>
+<li><p>Importing, tidying and communication strength of each statistical software varies.</p></li>
+</ul>
+
+<aside class='note'><section><p>Every data processing software will have a way to: - Import data - the imported data might need some transformation (e.g. creating new variables, recoding previously created variables, formatting the variables etc) - Visualization involves tables and graphs - Modeling: statistical summaries, inferences, regression etc&#8230;.</p></section></aside>
+
+</article></slide><slide class='segue dark nobackground level1'><hgroup class = 'auto-fadein'><h2>Data</h2></hgroup><article  id="data">
+
+</article></slide><slide class=''><hgroup><h2>Data Format</h2></hgroup><article  id="data-format">
+
+<ul>
+<li><p>Usually in the form of a table created using a spreadsheet application (e.g. Microsoft Excel, Notepad, Epi-Info questionnaire, Microsoft Access or even SPSS datasheet)</p></li>
+<li><p>Made up of rows and columns</p></li>
+<li><p><em>Rows</em> are <strong>horizontal</strong>, <em>columns</em> are <strong>vertical</strong></p></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Data Example</h2></hgroup><article  id="data-example" class="flexbox vcenter">
+
+<img src='pics/data1.JPG' title='fig:'/><p class='caption'>Fig. 3: Example of a tabular data</p>
+
+</article></slide><slide class=''><hgroup><h2>Tidy Data1</h2></hgroup><article  id="tidy-data1">
+
+<ul>
+<li><p>Data entered may be <strong><em>tidy</em></strong> or <strong><em>untidy</em></strong></p></li>
+<li><p>a <strong><em>tidy data</em></strong> is one where:</p>
+
+<ul>
+<li><p>each row represents a case (usually all the measurements made on an individual sample or person)</p></li>
+<li><p>each column represents a unqiue type of variable (i.e. a specific type of measurement)</p></li>
+<li><p>each cell represents a single observation</p></li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Tidy Data2 </h2><h3> Example ONE</h3></hgroup><article  id="tidy-data2-example-one">
+
+<div class="columns-2">
+<img src='pics/data2.PNG' title='fig:'/>
+
+<div class="col2">
+<p><img src="intro_to_biostatistics_files/figure-html/data3.png"></p></div></div>
+
+<div style="height:1em;">
+</div>
+
+<ul>
+<li>The image on the left is <em>not tidy</em> because the &quot;<strong><em>rate</em></strong>&quot; column actually contained two variables: &quot;<strong><em>cases</em></strong>&quot; and &quot;<strong>population</strong>&quot;.</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Tidy Data3</h2></hgroup><article  id="tidy-data3">
+
+<ul>
+<li><p>a tidy data can be presented in two different formats:</p>
+
+<ul>
+<li><p>long format: compacted with higher number of rows and smaller number of columns</p></li>
+<li><p>wide format: more spread-out with reduced number of rows compared to the long format but <strong><em>usually</em></strong> with more number of columns.</p></li>
+<li><p>There are reasons why you may want to display your data in the wide or the long format as we will see later</p></li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Tidy Data4 </h2><h3> (Example TWO)</h3></hgroup><article  id="tidy-data4-example-two" class="smaller">
+
+<div class="columns-2">
+<img src='pics/data4.PNG' title='fig:'/>
+
+<div class="col2">
+<img src='pics/data5.PNG' title='fig:'/></div></div>
+
+<div style="height:1em;">
+</div>
+
+<ul>
+<li>The two tables above displays the same data but while the left displays the long format (12 rows and 4 columns), the right displays it in the wide format (6 rows and 4 columns)</li>
+</ul>
+
+</article></slide><slide class='segue dark nobackground level1'><hgroup class = 'auto-fadein'><h2>Variables</h2></hgroup><article  id="variables">
+
+</article></slide><slide class=''><hgroup><h2>Variables</h2></hgroup><article  id="variables-1">
+
+<ul>
+<li><p>In a tidy data, each column represents a variable</p></li>
+<li><p>Variables can either be <b>categorical</b> or <b>numerical</b></p></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Variables </h2><h3> Categorical Variables</h3></hgroup><article  id="variables-categorical-variables">
+
+<ul>
+<li>are variables that can only take only specific classes of outcomes.</li>
+<li>the unique type of outcomes are called the &quot;<strong>Levels</strong>&quot; of that variable</li>
+<li>examples are: names, gender, religion, ethnicity, level of education, social status etc</li>
+</ul>
+
+<p>Categorical variables are further divided into two types: nominal and ordinal</p>
+
+<ul>
+<li>Called nominal variables when there is no ranking or hierarchy among the different classes e.g. sex, religion, ethnicity</li>
+<li>Called ordinal variables when there is a clear ranking or grading of the possible categories e.g. level of education, social status, Likert scales etc.</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Numeric variables</h2></hgroup><article  id="numeric-variables">
+
+<ul>
+<li>Numbered variables. Can take on a wide range of values</li>
+<li>Can be of either <strong>discrete</strong> or <strong>continuous</strong> type.</li>
+</ul>
+
+<h3>Discrete Variables</h3>
+
+<ul>
+<li>Also called <em>count</em> variables</li>
+<li>Can only assume whole numbers</li>
+<li>There are finite possible outcomes</li>
+<li>Examples are: number of children, population, number of cases, etc.</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Numeric Variables2 </h2><h3> continuous variables</h3></hgroup><article  id="numeric-variables2-continuous-variables">
+
+<ul>
+<li>These variables can take on infinite number of outcomes (i.e. they can be represented as fractions or decimals)</li>
+<li>They are <em>measured</em> variables</li>
+<li>Representation depends on the level of accuracy of the measuring instrument e.g.
+
+<ul>
+<li>weight can be to whole numbers if using analogue scales but can be to 2 decimal places when using digital scales</li>
+<li>age can be to the nearest year; nearest year and month; year, month and week, etc.</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Numeric Variables3 </h2><h3> continuous variables (cont&#39;d)</h3></hgroup><article  id="numeric-variables3-continuous-variables-contd">
+
+<ul>
+<li><p>Examples include: age, weight, height, blood pressure, blood sugar etc.</p></li>
+<li><p>Further classified into: interval and ratio scales.</p>
+
+<ul>
+<li>Interval scale has no absolute zero point and therefore can assume negative values (e.g. temperature)</li>
+<li>Ratio scale has an absolute zero value (e.g. weight, age)</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Variables </h2><h3> Note</h3></hgroup><article  id="variables-note" class="smaller">
+
+<ul>
+<li><p>Categorical variables with few possible outcomes are generally coded during analysis as discrete (numerical) variables e.g. for gender, male can be coded as&quot;1&quot; and female as &quot;2&quot; or vice versa.</p></li>
+<li><p>Only categorical variables with several possible outcomes are left as categorical during analysis (these are called &quot;strings&quot;) e.g. names.</p></li>
+<li>Discrete variables with many possible outcomes are treated as if they are continuous variables (e.g. population of places).
+
+<ul>
+<li>The population of a place can be as small as few hundreds and that of another place as many as several thousands.</li>
+</ul></li>
+<li><p>Continuous variables can also be converted into categorical variables through a process called &quot;binning&quot; or &quot;grouping&quot; e.g. age of individuals can be converted into age-groups, weight can be classified into underweight, normal weight or overweight etc.</p></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Review ONE</h2></hgroup><article  id="review-one">
+
+<div class="panel panel-default">
+<div class="panel-heading tutorial-panel-heading">Quiz</div>
+<table class="table quiz-table">
+<tr>
+<td>
+
+<div id="htmlwidget-c04c7a1428c2d6990889" style="width:100%;height:auto;", class = "quiz html-widget">
+<div class="panel panel-default">
+<div class="panel-body quizArea">
+</div>
+</div>
+</div>
+
+<script type="application/json" data-for="htmlwidget-c04c7a1428c2d6990889">{"x":{"question":"Which of the following is not a categorical variable?","answers":[{"option":"place of delivery","correct":false,"message":null},{"option":"occupation","correct":false,"message":null},{"option":"income","correct":true,"message":"income is monetary. Money can be expressed to as many decimal places as necessary"},{"option":"ethnicity","correct":false,"message":null}],"label":"quiz-1","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":true,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"Which of the following is not a categorical variable?","a":[{"option":"place of delivery","correct":false,"message":null},{"option":"occupation","correct":false,"message":null},{"option":"income","correct":true,"message":"income is monetary. Money can be expressed to as many decimal places as necessary"},{"option":"ethnicity","correct":false,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
+</td>
+</tr>
+</table>
+</div>
+
+</article></slide><slide class=''><hgroup><h2>Review TWO</h2></hgroup><article  id="review-two">
+
+<div class="panel panel-default">
+<div class="panel-heading tutorial-panel-heading">Quiz</div>
+<table class="table quiz-table">
+<tr>
+<td>
+
+<div id="htmlwidget-89847fc3e676e3310c17" style="width:100%;height:auto;", class = "quiz html-widget">
+<div class="panel panel-default">
+<div class="panel-body quizArea">
+</div>
+</div>
+</div>
+
+<script type="application/json" data-for="htmlwidget-89847fc3e676e3310c17">{"x":{"question":"Which of the following is a continuous variable? (select all that applies)","answers":[{"option":"colour","correct":false,"message":null},{"option":"CGPA (cummulative grade point average)","correct":true,"message":null},{"option":"time","correct":true,"message":null},{"option":"heart rate","correct":false,"message":null}],"label":"quiz2-1","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":true,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"Which of the following is a continuous variable? (select all that applies)","a":[{"option":"colour","correct":false,"message":null},{"option":"CGPA (cummulative grade point average)","correct":true,"message":null},{"option":"time","correct":true,"message":null},{"option":"heart rate","correct":false,"message":null}],"correct":"Correct!","incorrect":"Incorrect.","force_checkbox":true}]}},"evals":[],"jsHooks":[]}</script>
+</td>
+</tr>
+</table>
+</div>
+
+</article></slide><slide class='segue dark nobackground level1'><hgroup class = 'auto-fadein'><h2>Analysis</h2></hgroup><article  id="analysis">
+
+</article></slide><slide class=''><hgroup><h2></h2></hgroup><article >
+
+<p>Include:</p>
+
+<ul>
+<li><p><strong>data Visualization</strong> using tables and graphs</p>
+
+<ul>
+<li>Common graphs include bar charts, histograms, scatter-plots, line plots, box-plots, pie charts, density plots</li>
+</ul></li>
+<li><p>and <strong>data modeling</strong></p>
+
+<ul>
+<li>descriptive statistics</li>
+<li>inferential statistics</li>
+<li>regression/predictive analysis</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Data Visualization </h2><h3> Tables</h3></hgroup><article  id="data-visualization-tables">
+
+<p>For categorical variables. Summarises the number of occurence of each of the levels of the variable.</p>
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="left">country</th>
+<th align="right">count</th>
+</tr>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="right">34</td>
+</tr>
+<tr class="even">
+<td align="left">Albania</td>
+<td align="right">34</td>
+</tr>
+<tr class="odd">
+<td align="left">Algeria</td>
+<td align="right">34</td>
+</tr>
+<tr class="even">
+<td align="left">American Samoa</td>
+<td align="right">34</td>
+</tr>
+</table>
+
+</article></slide><slide class=''><hgroup><h2>Data Visualization2 </h2><h3> Bar Graphs</h3></hgroup><article  id="data-visualization2-bar-graphs">
+
+<p>Also for categorical data. Displays similar information to tables in graph form.</p>
+
+<h3>Bar Chart Example</h3>
+
+<p><img src="Intro_to_biostatistics_files/figure-html/unnamed-chunk-2-1.png" width="480" /></p>
+
+</article></slide><slide class=''><hgroup><h2>Data Visualization3 </h2><h3> Histograms</h3></hgroup><article  id="data-visualization3-histograms" class="smaller">
+
+<ul>
+<li>Used for continuous variables</li>
+<li>Shows distribution of the continuous variable thus helping to identify deviations from normal distribution.</li>
+</ul>
+
+<h3>Histogram Example</h3>
+
+<p><img src="Intro_to_biostatistics_files/figure-html/unnamed-chunk-3-1.png" width="480" /></p>
+
+</article></slide><slide class=''><hgroup><h2>Data Visualization4 </h2><h3> Scatterplots</h3></hgroup><article  id="data-visualization4-scatterplots" class="smaller">
+
+<ul>
+<li>Used for visualizing the relationship between 2 continuous variables</li>
+<li>Helps to understand the correlation between the two variables.</li>
+</ul>
+
+<h3>Scatterplot Example</h3>
+
+<p><img src="Intro_to_biostatistics_files/figure-html/unnamed-chunk-4-1.png" width="480" /></p>
+
+</article></slide><slide class=''><hgroup><h2>Data Visualization5 </h2><h3> lineplots</h3></hgroup><article  id="data-visualization5-lineplots" class="smaller">
+
+<ul>
+<li>Used for visualizing trend in data.</li>
+<li>The discrete/categorical variable is plotted on the x-axis and the continuous variable on the y-axis</li>
+</ul>
+
+<h3>lineplot Example</h3>
+
+<p><img src="Intro_to_biostatistics_files/figure-html/unnamed-chunk-5-1.png" width="480" /></p>
+
+</article></slide><slide class=''><hgroup><h2>Data Visualization6 </h2><h3> boxplots</h3></hgroup><article  id="data-visualization6-boxplots" class="smaller">
+
+<ul>
+<li>Used for visualizing summary statistics of continuous variable. It shows the median, the IQR, and outliers</li>
+<li>Can also be used to view the continuous variable based on a specified criteria (a categorical variable). The categorical variable is plotted on the x-axis and the continuous variable on the y-axis</li>
+</ul>
+
+<h3>boxplot Example</h3>
+
+<p><img src="Intro_to_biostatistics_files/figure-html/unnamed-chunk-6-1.png" width="480" /></p>
+
+</article></slide><slide class=''><hgroup><h2>Data Visualization7 </h2><h3> Piecharts</h3></hgroup><article  id="data-visualization7-piecharts" class="smaller">
+
+</article></slide><slide class=''><hgroup><h2>Modeling </h2><h3> Descriptive statistics</h3></hgroup><article  id="modeling-descriptive-statistics">
+
+<ul>
+<li><p>Summarises the findings of the analysis</p></li>
+<li><p>Not generalizable to the total population</p></li>
+<li><p>Sample parameters are generally represented using <em>English</em> alphabets while population parameters are represented using <em>Greek</em> alphabets</p></li>
+<li><p>Descriptive statistics of interest include:</p>
+
+<ul>
+<li>Measures of central tendencies: mean, median and mode</li>
+<li>Measures of dispersion: standard deviation, variance, minimum and maximum, range, IQR and standard error</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Modeling2 </h2><h3> Descriptive statistics (cont&#39;d)</h3></hgroup><article  id="modeling2-descriptive-statistics-contd">
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="left">parameter</th>
+<th align="right">sample</th>
+<th align="right">population</th>
+</tr>
+<tr class="odd">
+<td align="left">mean</td>
+<td align="right">\(\bar x\)</td>
+<td align="right">\(\mu\)</td>
+</tr>
+<tr class="even">
+<td align="left">proportion (prevalence)</td>
+<td align="right">\(p\)</td>
+<td align="right">\(\pi\)</td>
+</tr>
+<tr class="odd">
+<td align="left">std dev</td>
+<td align="right">\(s\)</td>
+<td align="right">\(\sigma\)</td>
+</tr>
+<tr class="even">
+<td align="left">variance</td>
+<td align="right">\(s^2\)</td>
+<td align="right">\({\sigma}^2\)</td>
+</tr>
+</table>
+
+</article></slide><slide class=''><hgroup><h2>Modeling3 </h2><h3> Inferential statistics</h3></hgroup><article  id="modeling3-inferential-statistics">
+
+<ul>
+<li><p>Make deductions from the data and are therefore generalizable (i.e. hypothesis testing)</p></li>
+<li><p>Includes the Parametric tests and the non-parametric tests</p></li>
+<li><p>Parametric tests are preferred. However, they make some assumptions about the data</p></li>
+<li><p>When the assumptions of parametric tests do not hold, use non-parametric tests</p></li>
+<li><p>Generally, proper sampling and transformations of the data validates the assumptions of parametric tests.</p></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Modeling4 </h2><h3> Hypothesis statement</h3></hgroup><article  id="modeling4-hypothesis-statement">
+
+<ul>
+<li><p>Null Hpothesis (\(H_{0}\)): no statistical significant difference between 2 variables of interest. e.g.</p>
+
+<ul>
+<li>\(H_{0}\): \(\mu_{1} = \mu_{2}\) (or \(\mu_{1} - \mu_{2} = 0\))</li>
+</ul></li>
+<li><p>Alternate Hypothesis (\(H_{1}\)): there is a significant difference between the values of two variables. Can be written in three different ways:</p>
+
+<ul>
+<li>\(H_{1}\): \(\mu_{1} &gt; \mu_{2}\) (first mean is <em>greater than</em> second mean)</li>
+<li>\(H_{1}\): \(\mu_{1} &lt; \mu_{2}\) (first mean is <em>less than</em> second mean)</li>
+<li>\(H_{1}\): \(\mu_{1} \neq \mu_{2}\)</li>
+<li>The first two alternate hypothesis are called <em>&quot;one-sided&quot;</em> hypothesis while the third one is called <em>&quot;two-sided&quot;</em> hypothesis. Two sided because it is testing whether \(\mu_{1} &gt; \mu_{2}\) or \(\mu_{1} &lt; \mu_{2}\)</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Modeling5 </h2><h3> Inferential statistics (cont&#39;d)</h3></hgroup><article  id="modeling5-inferential-statistics-contd">
+
+<ul>
+<li>For inferences, two parameters are important:
+
+<ul>
+<li>the level of uncertainty (or degree of error or the level of significance) called \(\alpha\) which is usually set at \(0.05\) (i.e. 5%)</li>
+<li>the power of the the test called \(1 - \beta\). This is usually set at \(0.8\) (i.e. 80%)</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Modeling6 </h2><h3> Inferential statistics (cont&#39;d)</h3></hgroup><article  id="modeling6-inferential-statistics-contd">
+
+<p>Inferences are generally made using:</p>
+
+<ul>
+<li><strong>Confidence Intervals</strong> (\(CI\)): A plausible range of values for the population parameter. This is usually set at 95% meaning that you are 95% certain that the true population value will be within these range of values calculated using your sample.</li>
+<li><strong>Test statistics</strong> (e.g. Z-test, t-test or chi-square values depending on the statistical test carried out)</li>
+<li><strong>P-value</strong>: the probability of observing data at least as favorable to the alternative hypothesis as our current data set, if the null hypothesis is true.
+
+<ul>
+<li>Usually set at a significance level of \(0.05\) meaning any p-value less than \(0.05\) is significant.</li>
+<li>The most commonly used parameter for inferencing.</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Modeling for Categorical data </h2><h3> Descriptive statistics</h3></hgroup><article  id="modeling-for-categorical-data-descriptive-statistics">
+
+<ul>
+<li>Measures of central tendencies: proportion/prevalence/percentage of outcome of interest (e.g. proportion of the population with diabetes)</li>
+<li>Measures of dispersion: standard deviation (\(\sigma\)), variance (\({\sigma}^2\)) and standard error</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Modeling for Categorical data2 </h2><h3> Inferential statistics</h3></hgroup><article  id="modeling-for-categorical-data2-inferential-statistics">
+
+<ul>
+<li><p>Binomial test for one-sample</p></li>
+<li><p>Binomial test or chi-square (\({\chi}^2\)) for two-sample</p></li>
+<li><p>Chi-square (\({\chi}^2\)) for 3 or more samples.</p></li>
+<li><p>Non-parametric tests can also be used when the assumptions of parametric tests are not met e.g. Fisher&#39;s Exact test, McNemar&#39;s test</p></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Modeling for Continuous data </h2><h3> Descriptive statistics</h3></hgroup><article  id="modeling-for-continuous-data-descriptive-statistics">
+
+<ul>
+<li>Measures of central tendencies: mean (\(\bar x\)), median</li>
+<li>Measures of spread: standard deviation (\(s\)), variance (\(s^2\)), minimum and maximum, range, IQR and standard error.</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Modeling for Continuous data2 </h2><h3> Inferential statistics</h3></hgroup><article  id="modeling-for-continuous-data2-inferential-statistics">
+
+<ul>
+<li>T-test (more commonly used) for one-sample</li>
+<li>T-test for two-sample (paired or unpaired)</li>
+<li>Analysis of Variance (ANOVA) test for 3 or more samples.</li>
+<li>Non-parametric tests e.g. the Mann-Whitney test when the assumptions of parametric tests are not met.</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Correlation and Regression</h2></hgroup><article  id="correlation-and-regression">
+
+<ul>
+<li>Used to determine variable(s) that have significant relationship with an outcome of interests and are therefore important determinants of the outcome.</li>
+<li>The outcome of interest is called the outcome (or independent) variable</li>
+<li>The variables that have relationship with the outcome of interest are called predictor (or dependent) variables.</li>
+<li>Two variables can be positively correlated if the value of one increases as the other increases, negatively correlated if the value of one increases as the other decreases, or not correlated.</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Correlation and Regression2</h2></hgroup><article  id="correlation-and-regression2">
+
+<ul>
+<li>Regression is also used in building prediction models</li>
+<li>There are basically two classes of Regression methods:
+
+<ul>
+<li>Linear regression: e.g. Simple Linear Regression, multiple Polynomial regression etc</li>
+<li>Generalized Linear Models: e.g. Logistic Regression, Poisson Regression etc</li>
+</ul></li>
+</ul>
+
+
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::register_http_handlers(session, metadata = NULL)
+</script>
+ <!--html_preserve-->
+
+<script type="application/shiny-prerendered" data-context="dependencies">
+{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootstrap"]},{"type":"character","attributes":{},"value":["3.3.5"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/bootstrap-3.3.5"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["viewport"]}},"value":[{"type":"character","attributes":{},"value":["width=device-width, initial-scale=1"]}]},{"type":"character","attributes":{},"value":["js/bootstrap.min.js","shim/html5shiv.min.js","shim/respond.min.js"]},{"type":"character","attributes":{},"value":["css/bootstrap.min.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ioslides"]},{"type":"character","attributes":{},"value":["13.5.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/ioslides/ioslides-13.5.1"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/modernizr.custom.45394.js","js/prettify/prettify.js","js/prettify/lang-r.js","js/prettify/lang-yaml.js","js/hammer.js","js/slide-controller.js","js/slide-deck.js"]},{"type":"character","attributes":{},"value":["fonts/fonts.css","theme/css/default.css","theme/css/phone.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery-1.11.3"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["font-awesome"]},{"type":"character","attributes":{},"value":["4.5.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/font-awesome-4.5.0"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/font-awesome.min.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootbox"]},{"type":"character","attributes":{},"value":["4.4.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/bootbox"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["bootbox.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["localforage"]},{"type":"character","attributes":{},"value":["1.5"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/localforage"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["localforage.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmlwidgets.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmlwidgets"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["quiz-binding"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["quiz.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[false]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery-1.11.3"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootstrap"]},{"type":"character","attributes":{},"value":["3.3.5"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/bootstrap-3.3.5"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["viewport"]}},"value":[{"type":"character","attributes":{},"value":["width=device-width, initial-scale=1"]}]},{"type":"character","attributes":{},"value":["js/bootstrap.min.js","shim/html5shiv.min.js","shim/respond.min.js"]},{"type":"character","attributes":{},"value":["css/bootstrap.min.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootbox"]},{"type":"character","attributes":{},"value":["4.4.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/bootbox"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["bootbox.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["localforage"]},{"type":"character","attributes":{},"value":["1.5"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/localforage"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["localforage.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["slickquiz"]},{"type":"character","attributes":{},"value":["1.5.20"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets/lib/slickquiz"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/slickQuiz.js"]},{"type":"character","attributes":{},"value":["css/slickQuiz.css","css/slickQuizTutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmlwidgets.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmlwidgets"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["quiz-binding"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["quiz.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[false]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery-1.11.3"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootstrap"]},{"type":"character","attributes":{},"value":["3.3.5"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/bootstrap-3.3.5"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["viewport"]}},"value":[{"type":"character","attributes":{},"value":["width=device-width, initial-scale=1"]}]},{"type":"character","attributes":{},"value":["js/bootstrap.min.js","shim/html5shiv.min.js","shim/respond.min.js"]},{"type":"character","attributes":{},"value":["css/bootstrap.min.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootbox"]},{"type":"character","attributes":{},"value":["4.4.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/bootbox"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["bootbox.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["localforage"]},{"type":"character","attributes":{},"value":["1.5"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/localforage"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["localforage.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["slickquiz"]},{"type":"character","attributes":{},"value":["1.5.20"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets/lib/slickquiz"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/slickQuiz.js"]},{"type":"character","attributes":{},"value":["css/slickQuiz.css","css/slickQuizTutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]}]}
+</script>
+
+<!--/html_preserve--></article></slide>
+
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!-- map slide visiblity events into shiny -->
+<script>
+  (function() {
+    if (window.jQuery) {
+       window.jQuery(document).on('slideleave', function(e) {
+         window.jQuery(e.target).trigger('hidden');
+      });
+       window.jQuery(document).on('slideenter', function(e) {
+         window.jQuery(e.target).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>

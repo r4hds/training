@@ -1,0 +1,74 @@
+/* My Introduction to Biostatistics Slide Presentation CSS  */
+
+.col2 {
+  display: inherit;
+}
+
+p {
+  font-family: "Gill Sans MT", "Gill Sans", GillSans, sans-serif;
+  color: black;
+  line-height: 120%;
+}
+
+ul > li:before {
+  content: none !important;
+}
+
+li {
+  list-style: square;
+  color: black;
+  font-family: "Gill Sans MT", "Gill Sans", GillSans, sans-serif;
+
+}
+
+
+ul li ul li:before {
+  content: none;
+}
+
+ul li li {
+  list-style: disc;
+}
+
+
+h1,
+h2,
+h3 {
+  font-family: "Gill Sans MT", "Gill Sans", GillSans, sans-serif;
+  color: black;
+
+}
+
+
+h3 {
+  font-weight: 600;
+  font-style: italic;
+}
+
+table.rmdtable {
+    width: 75%;
+}
+
+
+.gdbar img {
+  width: 120px !important;
+  height: 120px !important;
+  margin: 8px 8px;
+}
+
+
+.gdbar {
+  width: 220px !important;
+  height: 150px !important;
+}
+
+/*
+
+slides > slide:not(.nobackground):before {
+  width: 75px;
+  height: 75px;
+  background-size: 75px 75px;
+}
+
+
+*/

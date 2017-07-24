@@ -12,6 +12,8 @@ output:
     logo: photo.jpg
     transition: slower
     widescreen: yes
+    include:
+      after_body: Intro_to_biostatistics_files/footer.txt
 ---
 
 # Introduction

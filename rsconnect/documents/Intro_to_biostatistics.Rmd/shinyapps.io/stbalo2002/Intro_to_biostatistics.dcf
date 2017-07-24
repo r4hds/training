@@ -1,0 +1,11 @@
+name: Intro_to_biostatistics
+title: Intro_to_biostatistics
+account: stbalo2002
+server: shinyapps.io
+appId: 199211
+bundleId: 914459
+url: https://stbalo2002.shinyapps.io/Intro_to_biostatistics/
+when: 1500936159.9065
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: intro_statistics.html|intro_statistics.Rmd|photo.jpg|presentation.css|README.md|Intro_to_biostatistics_files/footer.txt|pics/data_work_flow1.JPG|pics/data_work_flow2.JPG|pics/data1.JPG|pics/data2.JPG|pics/data2.PNG|pics/data3.JPG|pics/data3.PNG|pics/data4.PNG|pics/data5.PNG

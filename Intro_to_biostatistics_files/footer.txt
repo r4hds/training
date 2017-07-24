@@ -1,0 +1,3 @@
+<footer>
+&copy; DataStudio  2017
+</footer>

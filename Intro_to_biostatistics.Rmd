@@ -1,10 +1,9 @@
 ---
 title: "Introduction to Biostatistics"
 author: "Balogun Stephen Taiye"
-date: "July 16, 2017"
+date: "July 24, 2017"
 output: 
   ioslides_presentation:
-    css: presentation.css
     fig_caption: yes
     fig_height: 6
     fig_width: 7
@@ -14,6 +13,84 @@ output:
     widescreen: yes
 runtime: shiny_prerendered
 ---
+
+<style>
+.col2 {
+  display: inherit;
+}
+
+td {
+padding-top: 5px !important; 
+padding-bottom: 5px !important;
+}
+
+p {
+  font-family: "Gill Sans MT", "Gill Sans", GillSans, sans-serif;
+  color: black;
+  line-height: 120%;
+}
+
+ul > li:before {
+  content: none !important;
+}
+
+li {
+  list-style: square;
+  color: black;
+  font-family: "Gill Sans MT", "Gill Sans", GillSans, sans-serif;
+
+}
+
+ul li ul li:before {
+  content: none;
+}
+
+ul li li {
+  list-style: disc;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Gill Sans MT", "Gill Sans", GillSans, sans-serif;
+  color: black;
+}
+
+h3 {
+  font-weight: 600;
+  font-style: italic;
+}
+
+label {
+display: inline-block;
+}
+
+input {
+display: inline-block;
+width: 50px;
+}
+
+footer {
+    font-size: .7rem;
+    position: absolute;
+    bottom: 2%;
+    right: 25vw;
+    color: gray;
+    font-weight: 600;
+    font-family: "Verdana";
+}
+
+html {
+max-width: 100vw;
+}
+
+</style>
+
+
+```{r setup, include = FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
 
 # Introduction
 
@@ -26,14 +103,14 @@ runtime: shiny_prerendered
 
 ## Research Workflow {.flexbox .vcenter}
 
-![Fig. 1: Research workflow chart](./pics/data_work_flow1.jpg)
+![Fig. 1: Research workflow chart](Intro_to_biostatistics_files/data_work_flow.jpg)
 
 - Usually, the researcher might go back and forth between each of the stages of the research.
 
 
 ## Data Analysis Workflow {.flexbox .vcenter}
 
-![Fig. 2: data analysis workflow chart](./pics/data_work_flow2.jpg)
+![Fig. 2: data analysis workflow chart](Intro_to_biostatistics_files/data_work_flow1.jpg)
 
 - Data analysis revolves around the trio of **transformation**, **visualization** and **modeling**
 
@@ -66,7 +143,7 @@ Every data processing software will have a way to:
 ## Data Example {.flexbox .vcenter}
 
 
-![Fig. 3: Example of a tabular data](./pics/data1.jpg) 
+![Fig. 3: Example of a tabular data](Intro_to_biostatistics_files/data1.jpg) 
 
 
 ## Tidy Data1
@@ -86,11 +163,11 @@ Every data processing software will have a way to:
 
 <div class="columns-2">
 
-  ![](./pics/data2.png)
+  ![](Intro_to_biostatistics_files/data2.png)
 
 <div class="col2">
 
-<img src="intro_to_biostatistics_files/figure-html/data3.png">
+<img src="Intro_to_biostatistics_files/data3.png">
 
 </div>
 
@@ -117,12 +194,12 @@ Every data processing software will have a way to:
 
 <div class="columns-2">
 
-![](./pics/data4.png)
+![](Intro_to_biostatistics_files/data4.png)
 
 
 <div class="col2">
 
-![](./pics/data5.png)
+![](Intro_to_biostatistics_files/data5.png)
 
 </div>
 
@@ -201,30 +278,30 @@ Categorical variables are further divided into two types: nominal and ordinal
 - Continuous variables can also be converted into categorical variables through a process called "binning" or "grouping" e.g. age of individuals can be converted into age-groups, weight can be classified into underweight, normal weight or overweight etc.
 
 
-## Review ONE
+## Review
 
-```{r quiz, echo = FALSE}
-library(learnr)
+```{r quiz1}
 quiz(
-  question("Which of the following is not a categorical variable?", allow_retry = TRUE,
+  question("Which of the followings is not a categorical variable?",
     answer("place of delivery"),
     answer("occupation"),
-    answer("income", correct = TRUE, message = "income is monetary. Money can be expressed to as many decimal places as necessary"),
-    answer("ethnicity")
+    answer("salary", correct = T, message = "income is monetary. Money can be expressed to as many decimal places as necessary"),
+    answer("ethnicity"), 
+    allow_retry = TRUE
   )
 )
 ```
 
 ## Review TWO
 
-```{r quiz2, echo = FALSE}
-library(learnr)
+```{r quiz2}
 quiz(
-  question("Which of the following is a continuous variable? (select all that applies)", type = "multiple", allow_retry = TRUE,
-    answer("colour"),
-    answer("CGPA (cummulative grade point average)", correct = TRUE),
-    answer("time", correct = TRUE),
-    answer("heart rate")
+  question("Which of the followings is a continuous variable?", 
+    answer("eye colour"),
+    answer("heart rate"),
+    answer("CGPA", correct = T),
+    allow_retry = TRUE,
+    random_answer_order = TRUE
   )
 )
 ```
@@ -248,9 +325,12 @@ Include:
     
 ## Data Visualization | Tables
 
-For categorical variables. Summarises the number of occurence of each of the levels of the variable.
+-  For categorical variables
+-   Summarises the number of occurence of each of the levels of the variable.
 
-```{r, echo = FALSE}
+<div class="col-md-6 col-md-push-1";>
+
+```{r}
 suppressWarnings(
   suppressMessages(
     library(tidyverse)
@@ -263,13 +343,15 @@ who %>%
   knitr::kable()
 ```
 
+</div>
+
 ## Data Visualization2 | Bar Graphs 
 
 Also for categorical data. Displays similar information to tables in graph form.
 
 ### Bar Chart Example
 
-```{r, echo = FALSE, fig.height = 3, fig.width = 5}
+```{r, fig.height = 3, fig.width = 5}
 ggplot(data = infert, aes(x = education)) + 
   geom_bar(fill = "lightblue", width = 0.5) +
   theme_minimal()
@@ -284,7 +366,7 @@ ggplot(data = infert, aes(x = education)) +
 
 ### Histogram Example 
 
-```{r, echo = FALSE, fig.height = 3, fig.width = 5, message = FALSE, warning = FALSE}
+```{r, fig.height = 3, fig.width = 5, message = FALSE, warning = FALSE}
 ggplot(data = diamonds, aes(x = price)) + 
   geom_histogram(fill = "lightblue", color = "black", bins = 15) +
   theme_minimal()
@@ -299,7 +381,7 @@ ggplot(data = diamonds, aes(x = price)) +
 
 ### Scatterplot Example 
 
-```{r, echo = FALSE, fig.height = 3, fig.width = 5, message = FALSE, warning = FALSE}
+```{r, fig.height = 3, fig.width = 5, message = FALSE, warning = FALSE}
 a <- sample(nrow(diamonds), 1000)
 b <- diamonds[a, ]
 ggplot(data = b, aes(x = price, y = carat)) + 
@@ -316,7 +398,7 @@ ggplot(data = b, aes(x = price, y = carat)) +
 
 ### lineplot Example 
 
-```{r, echo = FALSE, fig.height = 3, fig.width = 5, message = FALSE, warning = FALSE}
+```{r, fig.height = 3, fig.width = 5, message = FALSE, warning = FALSE}
 b <- diamonds %>%
   group_by(cut) %>%
   summarise(average_price = mean(price)) %>%
@@ -336,7 +418,7 @@ ggplot(data = b, aes(x = cut, y = average_price)) +
 
 ### boxplot Example
 
-```{r, echo = FALSE, fig.height = 3, fig.width = 5, message = FALSE, warning = FALSE}
+```{r, fig.height = 3, fig.width = 5, message = FALSE, warning = FALSE}
 
 ggplot(data = infert, aes(x = parity)) + 
   geom_boxplot(aes(y = age, group = parity)) +
@@ -345,6 +427,19 @@ ggplot(data = infert, aes(x = parity)) +
 ```
 
 ## Data Visualization7 | Piecharts {.smaller}
+
+- It is difficult to tell which segment is more compared to the other when the values are close (like in this example)
+
+- Also, it does not really give any idea about the exact value of each of the segments.
+
+- Avoid using it if possible.
+
+```{r, fig.width = 5, fig.height = 4}
+a <- diamonds %>%
+  group_by(cut) %>%
+  summarise(av = mean(price))
+pie(a$av, labels = a$cut, main = "Pie chart of proportion of diamond cuts")
+```
 
 
 ## Modeling | Descriptive statistics
@@ -362,6 +457,7 @@ ggplot(data = infert, aes(x = parity)) +
     
 ## Modeling2 | Descriptive statistics (cont'd)
 
+<div class="col-md-6 col-md-push-1";>
 
 |parameter  | sample  | population|
 |:----------|--------:|----------:|
@@ -370,7 +466,7 @@ ggplot(data = infert, aes(x = parity)) +
 |std dev    | $s$     | $\sigma$  |
 |variance   | $s^2$   | ${\sigma}^2$|
 
-
+</div>
     
 ## Modeling3 | Inferential statistics
 
@@ -458,4 +554,118 @@ Inferences are generally made using:
 - There are basically two classes of Regression methods:
     - Linear regression: e.g. Simple Linear Regression, multiple Polynomial regression etc
     - Generalized Linear Models: e.g. Logistic Regression, Poisson Regression etc
+    
+## Review
 
+```{r quiz3}
+quiz(
+  question("What type of chart will you use to visualize PCV (packed cell volume) of respondents collected during a study?", 
+    answer("bar chart"),
+    answer("pie chart"),
+    answer("scatterplot"),
+    answer("histogram", correct = TRUE),
+    allow_retry = TRUE,
+    random_answer_order = TRUE
+  )
+)
+```
+
+## Review
+
+```{r quiz4}
+quiz(
+  question("Which chart is best used to display the trend in HIV prevalence in Nigeria?", 
+    answer("bar chart"),
+    answer("line plot", correct = TRUE),
+    answer("histogram"),
+    answer("boxplot"),
+    allow_retry = TRUE,
+    random_answer_order = TRUE
+  )
+)
+```
+
+## Review
+
+```{r quiz5}
+quiz(
+  question("Which chart can be used to display the summary statistics of fasting blood sugar in males and females for comparison?", 
+    answer("boxplot", correct = TRUE),
+    answer("lineplot"),
+    answer("scatterplot"),
+    answer("bar chart"),
+    allow_retry = TRUE,
+    random_answer_order = TRUE
+  )
+)
+```
+
+## Review
+
+```{r quiz6}
+quiz(
+  question("I want to display the relationship between the average income of respondents and their level of education. What type of graph am I going to use?", 
+    answer("bar chart", correct = TRUE),
+    answer("histogram"),
+    answer("scatterplot"),
+    answer("piechart"),
+    allow_retry = TRUE,
+    random_answer_order = TRUE
+  )
+)
+```
+
+## Review
+
+```{r quiz7}
+quiz(
+  question("A researcher is interested in finding out if the age at first marriage in Kwara is statistically different from that in Abuja. What kind of inferential analysis will she do?", 
+    answer("chi-square"),
+    answer("two-sample t-test", correct = TRUE),
+    answer("ANOVA"),
+    answer("one-sample t-test"),
+    allow_retry = TRUE,
+    random_answer_order = TRUE
+  )
+)
+```
+
+## Review
+
+```{r quiz8}
+quiz(
+  question("Following my data collection, I want to know if the number of respondents with diabetes is significantly different from those without diabetes. What type of test statistic will I use?", 
+    answer("one-sample t-test"),
+    answer("two-sample t-test"),
+    answer("chi-square", correct = TRUE),
+    answer("ANOVA"),
+    allow_retry = TRUE,
+    random_answer_order = TRUE
+  )
+)
+```
+
+## Review
+
+```{r quiz9}
+quiz(
+  question("In my research proposal to compare the serum level DPP4 in diabetes, hypertensives, diabetic-hypertensives and normal people, I told my supervisor that I will be doing a chi-square analysis but he said I was wrong. What test should I have indicated I will perform?", 
+    answer("one-sample t-test"),
+    answer("two-sample t-test", message = "I have 4 different categories"),
+    answer("ANOVA", correct = TRUE),
+    answer("correlation", message = "DPP4 is A continuous variable"),
+    allow_retry = TRUE,
+    random_answer_order = TRUE
+  )
+)
+```
+
+## References
+
+- Fundamentals of Biostatistics, Seventh Edition, Bernard Rosner.
+
+- OpenIntro Statistics, Third Edition.
+
+- Discovering Statistics Using IBM SPSS Statistics, Fourth Edition.
+
+- An Introduction to Statistical Learning with Applications in R.
